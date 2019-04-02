@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    content-detail<br>
+{% extends 'base.html' %}
+{% block title %} | {{ article_details.title }}{% endblock title %}
+{% block main %}
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">
+        {{ article_details.title }}
+      </h3>
+
     {% if article_details %}
         {{ article_details.content|safe }}
     {% endif %}
     {% if article_not_found %}
         {{ article_not_found }}
     {% endif %}
-</body>
-</html>
+
+    </div><!-- /.blog-main -->
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+{% endblock main %}

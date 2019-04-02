@@ -35,3 +35,33 @@ class Article(models.Model):
             return 'Not Found'
         return article
 
+
+class NavLinkModel(models.Model):
+    name = models.CharField('链接名',max_length=20)
+    url = models.URLField('外链地址')
+
+    class Meta:
+        verbose_name = verbose_name_plural = '导航外链'
+
+    def __str__(self):
+        return self.name
+
+    @classmethod
+    def get_all_nav(self):
+        return NavLinkModel.objects.all()
+
+
+
+class FriendLinkModel(models.Model):
+    name = models.CharField('链接名',max_length=20)
+    url = models.URLField('友链地址')
+
+    class Meta:
+        verbose_name = verbose_name_plural = '友链管理'
+
+    def __str__(self):
+        return self.name
+
+    @classmethod
+    def get_all_fl(self):
+        return FriendLinkModel.objects.all()
